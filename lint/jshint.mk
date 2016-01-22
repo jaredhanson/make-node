@@ -9,4 +9,4 @@ lint-tests:
 	$(JSHINT) $(JSHINTFLAGS) $(TESTS)
 
 
-.PHONY: test
+.PHONY: lint lint-src lint-tests

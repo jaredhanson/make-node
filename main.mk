@@ -27,6 +27,8 @@ ifdef WITH_JSHINT
 endif
 
 
+include $(__JAREDHANSON_MAKE_NODE_DIR)/notes/grep.mk
+
 
 BIN ?= ./node_modules/.bin
 
