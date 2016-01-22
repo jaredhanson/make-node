@@ -2,15 +2,22 @@ __JAREDHANSON_MAKE_NODE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
 
 
+WITH_MOCHA ?= 1
+
 ifdef WITH_MOCHA
-include $(__JAREDHANSON_MAKE_NODE_DIR)/test/mocha.mk
-else
-include $(__JAREDHANSON_MAKE_NODE_DIR)/test/mocha.mk
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/test/mocha.mk
 endif
 
-include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul.mk
-include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul-mocha.mk
 
+WITH_ISTANBUL ?= 1
+
+ifdef WITH_ISTANBUL
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul.mk
+	
+  ifdef WITH_MOCHA
+    include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul-mocha.mk
+  endif
+endif
 
 
 BIN ?= ./node_modules/.bin
