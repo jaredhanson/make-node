@@ -8,6 +8,10 @@ else
 include $(__JAREDHANSON_MAKE_NODE_DIR)/test/mocha.mk
 endif
 
+include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul-mocha.mk
+
+
 
 BIN ?= ./node_modules/.bin
 

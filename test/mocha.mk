@@ -1,6 +1,6 @@
 MOCHA ?= $(BIN)/mocha
 
-test: node_modules
+test:
 	$(MOCHA) $(MOCHAFLAGS) $(TESTS)
 
 
