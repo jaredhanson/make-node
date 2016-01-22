@@ -20,6 +20,14 @@ ifdef WITH_ISTANBUL
 endif
 
 
+WITH_JSHINT ?= 1
+
+ifdef WITH_JSHINT
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/lint/jshint.mk
+endif
+
+
+
 BIN ?= ./node_modules/.bin
 
 
