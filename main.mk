@@ -5,17 +5,17 @@ __JAREDHANSON_MAKE_NODE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 WITH_MOCHA ?= 1
 
 ifdef WITH_MOCHA
-  include $(__JAREDHANSON_MAKE_NODE_DIR)/test/mocha.mk
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/mocha.mk
 endif
 
 
 WITH_ISTANBUL ?= 1
 
 ifdef WITH_ISTANBUL
-  include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul.mk
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test-cov/istanbul.mk
 	
   ifdef WITH_MOCHA
-    include $(__JAREDHANSON_MAKE_NODE_DIR)/test-cov/istanbul-mocha.mk
+    include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test-cov/istanbul-mocha.mk
   endif
 endif
 
@@ -23,11 +23,11 @@ endif
 WITH_JSHINT ?= 1
 
 ifdef WITH_JSHINT
-  include $(__JAREDHANSON_MAKE_NODE_DIR)/lint/jshint.mk
+  include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/lint/jshint.mk
 endif
 
 
-include $(__JAREDHANSON_MAKE_NODE_DIR)/notes/grep.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/notes/grep.mk
 
 
 BIN ?= ./node_modules/.bin
