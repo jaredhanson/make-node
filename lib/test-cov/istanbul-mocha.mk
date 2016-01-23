@@ -1,7 +1,10 @@
 _MOCHA ?= $(BIN)/_mocha
 
 test-cov:
-	$(ISTANBUL) cover $(ISTANBULFLAGS) $(_MOCHA) -- $(MOCHAFLAGS) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir $(COVERAGEDIR) $(_MOCHA) -- $(MOCHAFLAGS) $(TESTS)
+
+clean-cov:
+	rm -rf $(COVERAGEDIR)
 
 
-.PHONY: test-cov
+.PHONY: test-cov clean-cov
