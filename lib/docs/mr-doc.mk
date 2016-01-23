@@ -4,7 +4,7 @@ docs:
 	$(MRDOC) $(MRDOCFLAGS) -s $(SRCDIR) -o $(DOCSDIR)
 
 clean-docs:
-	rm -rf $(DOCSDIR)
+	-rm -r $(DOCSDIR)
 
 
 .PHONY: docs clean-docs
