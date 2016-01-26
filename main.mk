@@ -6,6 +6,8 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test-cov.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/lint.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/report-cov.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/notes.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/version.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/release.mk
 
 
 BIN ?= ./node_modules/.bin
