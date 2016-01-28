@@ -1,5 +1,5 @@
 {
-  "name": "@jaredhanson/make-node",
+  "name": "make-node",
   "version": "0.2.1",
   "description": "Useful makefiles for developing Node.js packages.",
   "keywords": [
