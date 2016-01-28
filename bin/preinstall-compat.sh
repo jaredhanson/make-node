@@ -51,7 +51,7 @@ case $NODE_VERSION in
     #
     # It is suspected that the switch from tilde (~)-style to caret (^)-style
     # ranges is causing this issue on older versions of npm.
-    npm install istanbul@0.3.9 -g
+    npm install istanbul@0.1.x -g
     npm install coveralls@2.x.x -g
     ;;
   *) # latest
