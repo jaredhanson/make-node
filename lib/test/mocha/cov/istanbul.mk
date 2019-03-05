@@ -10,6 +10,9 @@ ISTANBUL ?= istanbul
 # Istanbul can be installed by executing the following command:
 #     $ npm install -g istanbul
 #
+# Writes an LCOV tracefile
+# http://ltp.sourceforge.net/coverage/lcov/geninfo.1.php
+#
 # [^1]: https://mochajs.org/
 # [^2]: https://github.com/gotwarlost/istanbul
 #
