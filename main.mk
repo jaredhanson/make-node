@@ -8,10 +8,11 @@ prefix ?= .
 docdir ?= $(prefix)/doc
 htmldir ?= $(docdir)
 localstatedir ?= $(prefix)/var
-srcdir ?= ./lib
+srcdir ?= lib
 
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/lint.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/report-cov.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/notes.mk
