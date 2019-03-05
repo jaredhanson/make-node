@@ -1,4 +1,5 @@
-MOCHA ?= $(BIN)/mocha
+MOCHA ?= mocha
+
 
 # Run test suite.
 #
@@ -6,8 +7,8 @@ MOCHA ?= $(BIN)/mocha
 # test suite is expected to utilize Mocha[^1] as a test framework.
 #
 # [^1]: https://mochajs.org/
-test:
-	$(MOCHA) $(MOCHAFLAGS) $(TESTS)
+test: $(TESTS)
+	$(MOCHA) $(MOCHAFLAGS) $^
 
 
 .PHONY: test
