@@ -3,8 +3,8 @@ __docbin = $(firstword $(filter $(__docimpl),$(WITH) $(notdir $(shell which $(__
 
 ifeq (jsdoc,$(__docbin))
 #$(info Using JSDoc for 'doc'.)
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/docs/jsdoc.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/jsdoc.mk
 else ifeq (mr-doc,$(__docbin))
 #$(info Using Mr. Doc for 'doc'.)
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/docs/mr-doc.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/mr-doc.mk
 endif

@@ -1,6 +1,11 @@
 __JAREDHANSON_MAKE_NODE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/docs.mk
+SOURCES ?= $(shell find lib -type f -name '*.js')
+
+docdir ?= doc
+htmldir ?= $(docdir)
+
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test-cov.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/lint.mk
@@ -16,6 +21,8 @@ SRCDIR ?= ./lib
 DOCSDIR ?= ./docs
 REPORTSDIR ?= ./reports
 COVERAGEDIR ?= ./reports/coverage
+
+
 
 
 # Install dependencies in the local node_modules directory.
