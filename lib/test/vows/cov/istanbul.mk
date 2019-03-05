@@ -15,12 +15,15 @@ ISTANBUL ?= istanbul
 test-cov:
 	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir $(localstatedir)/cov $(VOWS) -- $(VOWSFLAGS) $(TESTS)
 
+view-cov:
+	open $(localstatedir)/cov/lcov-report/index.html
+
 # Clean up code coverage.
 #
 # This target cleans up any reports written while collecting code coverage
 # statistics.
 clean-cov:
-	-rm -r $(COVERAGEDIR)
+	-rm -r $(localstatedir)/cov
 
 
 .PHONY: test-cov clean-cov

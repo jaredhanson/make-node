@@ -22,7 +22,6 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/release.mk
 BIN ?= ./node_modules/.bin
 
 REPORTSDIR ?= ./reports
-COVERAGEDIR ?= ./reports/coverage
 
 
 
