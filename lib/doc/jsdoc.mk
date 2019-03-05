@@ -26,4 +26,12 @@ doc: $(htmldir)/index.html
 $(htmldir)/index.html: $(SOURCES)
 	$(JSDOC) $(JSDOCFLAGS) -d $(htmldir) $^
 
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/common.mk
+# Clean up documentation.
+#
+# This target cleans up any API documentation generated from source code.
+clean-docs:
+	-rm -r $(htmldir)
+
+
+.PHONY: clean-docs
+
