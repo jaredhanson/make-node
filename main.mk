@@ -4,6 +4,7 @@ __JAREDHANSON_MAKE_NODE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 SOURCES ?= $(shell find lib -type f -name '*.js')
 TESTS ?= $(shell find test -type f -name '*.test.js')
 
+srcdir ?= lib
 docdir ?= doc
 htmldir ?= $(docdir)
 

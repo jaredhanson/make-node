@@ -18,7 +18,7 @@ doc: $(htmldir)/index.html
 
 
 $(htmldir)/index.html: $(SOURCES)
-	$(MRDOC) $(MRDOCFLAGS) -o $(htmldir) -s $(firstword $(sort $(dir $^)))
+	$(MRDOC) $(MRDOCFLAGS) -o $(htmldir) -s $(srcdir)
 
 # Clean up documentation.
 #
