@@ -1,6 +1,5 @@
 MOCHA ?= mocha
 
-
 # Run test suite.
 #
 # This target verifies the software's behavior by running the test suite.  The
@@ -10,5 +9,9 @@ MOCHA ?= mocha
 test: $(TESTS)
 	$(MOCHA) $(MOCHAFLAGS) $^
 
+
+
+
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/mocha/cov.mk
 
 .PHONY: test
