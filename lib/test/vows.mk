@@ -10,8 +10,4 @@ test: $(TESTS)
 	$(VOWS) $(VOWSFLAGS) $^
 
 
-
-
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/vows/cov.mk
-
 .PHONY: test

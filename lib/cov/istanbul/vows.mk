@@ -1,5 +1,3 @@
-ISTANBUL ?= istanbul
-
 # Run test suite and report code coverage.
 #
 # This target verifies the software's behavior by running the test suite, while

@@ -10,8 +10,4 @@ test: $(TESTS)
 	$(MOCHA) $(MOCHAFLAGS) $^
 
 
-
-
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/mocha/cov.mk
-
 .PHONY: test

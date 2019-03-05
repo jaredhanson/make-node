@@ -1,5 +1,18 @@
 ISTANBUL ?= istanbul
 
+
+__testimpl = mocha vows
+__testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
+
+ifeq (mocha,$(__testbin))
+$(info Using Mocha for 'cov'.)
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/mocha.mk
+else ifeq (vows,$(__testbin))
+$(info Using Vows for 'cov'.)
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
+endif
+
+
 view-cov:
 	open $(localstatedir)/cov/lcov-report/index.html
 
