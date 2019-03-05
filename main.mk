@@ -21,8 +21,6 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/release.mk
 
 BIN ?= ./node_modules/.bin
 
-SRCDIR ?= ./lib
-DOCSDIR ?= ./docs
 REPORTSDIR ?= ./reports
 COVERAGEDIR ?= ./reports/coverage
 

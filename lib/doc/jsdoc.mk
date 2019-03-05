@@ -25,3 +25,5 @@ doc: $(htmldir)/index.html
 # serves as an index of all modules within the package.
 $(htmldir)/index.html: $(SOURCES)
 	$(JSDOC) $(JSDOCFLAGS) -d $(htmldir) $^
+
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/common.mk
