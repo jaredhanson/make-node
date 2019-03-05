@@ -7,6 +7,7 @@ TESTS ?= $(shell find test -type f -name '*.test.js')
 srcdir ?= lib
 docdir ?= doc
 htmldir ?= $(docdir)
+localstatedir ?= var
 
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test.mk

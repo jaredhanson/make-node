@@ -5,4 +5,4 @@ ISTANBUL ?= istanbul
 #       process.  This prevents `istanbul` from instrumenting the code, and so
 #       `_mocha` is used directly as a workaround.
 test-cov:
-	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir var/cov $(VOWS) -- $(VOWSFLAGS) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir $(localstatedir)/cov $(VOWS) -- $(VOWSFLAGS) $(TESTS)
