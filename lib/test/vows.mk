@@ -1,4 +1,4 @@
-VOWS ?= $(BIN)/vows
+VOWS ?= vows
 
 # Run test suite.
 #
@@ -6,8 +6,12 @@ VOWS ?= $(BIN)/vows
 # test suite is expected to utilize Vows[^1] as a test framework.
 #
 # [^1]: http://vowsjs.org/
-test:
-	$(VOWS) $(VOWSFLAGS) $(TESTS)
+test: $(TESTS)
+	$(VOWS) $(VOWSFLAGS) $^
 
+
+
+
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/vows/cov.mk
 
 .PHONY: test

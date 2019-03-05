@@ -1,4 +1,4 @@
-__testimpl = mocha
+__testimpl = mocha vows
 __testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
 
 ifeq (mocha,$(__testbin))
