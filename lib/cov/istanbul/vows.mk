@@ -10,8 +10,17 @@
 #
 # [^1]: http://vowsjs.org/
 # [^2]: https://github.com/gotwarlost/istanbul
-test-cov:
-	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir $(localstatedir)/cov $(VOWS) -- $(VOWSFLAGS) $(TESTS)
+test-cov: $(localstatedir)/cov/coverage.json
 
+
+
+$(localstatedir)/cov/coverage.json: $(SOURCES) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=none --dir $(localstatedir)/cov $(shell which vows) -- $(VOWSFLAGS) $(TESTS)
+
+$(localstatedir)/cov/index.html: $(SOURCES) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=html --dir $(localstatedir)/cov $(shell which vows) -- $(VOWSFLAGS) $(TESTS)
+
+$(localstatedir)/cov/lcov.info: $(SOURCES) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=lcovonly --dir $(localstatedir)/cov $(shell which vows) -- $(VOWSFLAGS) $(TESTS)
 
 .PHONY: test-cov
