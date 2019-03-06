@@ -2,12 +2,8 @@ VOWS ?= vows
 
 # Run test suite.
 #
-# This target verifies the software's behavior by running the test suite.  The
-# test suite is expected to utilize Vows[^1] as a test framework.
-#
-# [^1]: http://vowsjs.org/
+# This target is included for projects using [Vows](http://vowsjs.org/) as
+# a test framework.
+.PHONY: test
 test: $(TESTS)
 	$(VOWS) $(VOWSFLAGS) $^
-
-
-.PHONY: test
