@@ -18,7 +18,13 @@
 #       to the fact that `mocha` is a wrapper which spawns `_mocha` as a new
 #       process.  This prevents `istanbul` from instrumenting the code, and so
 #       `_mocha` is used directly as a workaround.
-test-cov:
-	$(ISTANBUL) cover $(ISTANBULFLAGS) --dir $(localstatedir)/cov $(shell which _mocha) -- $(MOCHAFLAGS) $(TESTS)
+test-cov: $(localstatedir)/cov/index.html
+
+
+
+
+$(localstatedir)/cov/index.html: $(SOURCES) $(TESTS)
+	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=html --dir $(localstatedir)/cov $(shell which _mocha) -- $(MOCHAFLAGS) $(TESTS)
+
 
 .PHONY: test-cov

@@ -13,8 +13,8 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
 endif
 
 
-view-cov:
-	open $(localstatedir)/cov/lcov-report/index.html
+view-cov: $(localstatedir)/cov/index.html
+	open $(localstatedir)/cov/index.html
 
 # Clean up code coverage.
 #
