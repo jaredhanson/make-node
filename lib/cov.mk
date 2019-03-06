@@ -10,4 +10,4 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/jscoverage.mk
 endif
 
 $(localstatedir)/cov:
-	mkdir -p $(localstatedir)/cov
+	mkdir -p $@
