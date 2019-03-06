@@ -1,3 +1,14 @@
+# Inject doc-related targets.
+#
+# This include introspects the system and injects doc-related targets based on
+# which program is available.
+#
+# The include locates the programs using `which`, and then extracts the name of
+# the program, removing the directory-part of the file name.  The environment
+# variable `WITH` can be specified to override the set of located programs.
+# Because the override can specify unsupported programs, the resulting list is
+# filtered to only supported programs.  The preferred program is then selected
+# and the appropriate targets are included.
 __docimpl = jsdoc mr-doc
 __docbin = $(firstword $(filter $(__docimpl),$(WITH) $(notdir $(shell which $(__docimpl)))))
 
@@ -7,4 +18,6 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/jsdoc.mk
 else ifeq (mr-doc,$(__docbin))
 #$(info Using Mr. Doc for 'doc'.)
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/mr-doc.mk
+else
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc/notfound.mk
 endif
