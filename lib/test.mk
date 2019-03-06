@@ -16,4 +16,6 @@ ifeq (mocha,$(__testbin))
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/mocha.mk
 else ifeq (vows,$(__testbin))
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/vows.mk
+else
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test/notfound.mk
 endif
