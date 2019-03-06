@@ -36,3 +36,6 @@ $(htmldir)/index.html: $(SOURCES)
 clean-doc: clean-doc-html
 clean-doc-html:
 	-rm -r $(htmldir)
+
+.PHONY: distclean-doc
+distclean-doc: clean-doc
