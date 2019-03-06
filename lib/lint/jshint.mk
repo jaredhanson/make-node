@@ -11,11 +11,18 @@ JSHINT ?= jshint
 # [^1]: http://jshint.com/
 lint: lint-src lint-tests
 
-lint-src:
-	$(JSHINT) $(JSHINTFLAGS) $(SOURCES)
+lint-src: $(SOURCES)
+	$(JSHINT) $(JSHINTFLAGS) $^
 
-lint-tests:
-	$(JSHINT) $(JSHINTFLAGS) $(TESTS)
+lint-test: $(TESTS)
+	$(JSHINT) $(JSHINTFLAGS) $^
+
+$(localstatedir)/lint/jslint.xml: $(localstatedir)/lint
+	$(JSHINT) $(JSHINTFLAGS) --reporter=jslint $(SOURCES) $(TESTS) > $@
+
+$(localstatedir)/lint/checkstyle.xml: $(localstatedir)/lint
+	$(JSHINT) $(JSHINTFLAGS) --reporter=checkstyle $(SOURCES) $(TESTS) > $@
 
 
-.PHONY: lint lint-src lint-tests
+
+.PHONY: lint lint-src lint-test
