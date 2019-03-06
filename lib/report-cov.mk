@@ -6,4 +6,4 @@ __reportcovimpl = coveralls codecov
 __reportcovhost = $(notdir $(shell which $(__reportcovimpl)))
 
 report-cov:
-	make $(foreach host,$(__reportcovhost), $(@)-$(host))
+	make $(foreach host,$(__reportcovhost),$(@)-$(host))

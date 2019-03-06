@@ -5,10 +5,10 @@ __testimpl = mocha vows
 __testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
 
 ifeq (mocha,$(__testbin))
-$(info Using Mocha for 'cov'.)
+#$(info Using Instanbul with Mocha for 'test-cov'.)
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/mocha.mk
 else ifeq (vows,$(__testbin))
-$(info Using Vows for 'cov'.)
+#$(info Using Instanbul with Vows for 'test-cov'.)
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
 endif
 
