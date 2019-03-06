@@ -4,7 +4,7 @@ MRDOC ?= mr-doc
 #
 # [Mr. Doc](https://mr-doc.github.io/) cannot generate this output format.  The
 # target exists as a no-op in accordance with the [standard targets][1] for
-# makefiles described by the GNU coding standards.
+# Makefiles described by the GNU coding standards.
 #
 # [1]: https://www.gnu.org/prep/standards/html_node/Standard-Targets.html
 .PHONY: dvi
@@ -16,7 +16,7 @@ dvi:
 # which supports JSDoc-style comments.
 #
 # This target is named 'html' in accordance with the [standard targets][1] for
-# makefiles described by the GNU coding standards.
+# Makefiles described by the GNU coding standards.
 #
 # [1]: https://www.gnu.org/prep/standards/html_node/Standard-Targets.html
 .PHONY: html
@@ -33,7 +33,7 @@ $(htmldir)/index.html: $(SOURCES)
 #
 # [Mr. Doc](https://mr-doc.github.io/) cannot generate this output format.  The
 # target exists as a no-op in accordance with the [standard targets][1] for
-# makefiles described by the GNU coding standards.
+# Makefiles described by the GNU coding standards.
 #
 # [1]: https://www.gnu.org/prep/standards/html_node/Standard-Targets.html
 .PHONY: pdf
@@ -43,7 +43,7 @@ pdf:
 #
 # [Mr. Doc](https://mr-doc.github.io/) cannot generate this output format.  The
 # target exists as a no-op in accordance with the [standard targets][1] for
-# makefiles described by the GNU coding standards.
+# Makefiles described by the GNU coding standards.
 #
 # [1]: https://www.gnu.org/prep/standards/html_node/Standard-Targets.html
 .PHONY: ps
