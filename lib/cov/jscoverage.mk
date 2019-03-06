@@ -1,4 +1,17 @@
 JSCOVERAGE ?= /Users/jaredhanson/Temporary/jscoverage/node-jscoverage/jscoverage
 
-lib-cov: $(SOURCES)
-	$(JSCOVERAGE) $(srcdir) lib-cov
+
+__testimpl = vows
+__testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
+
+ifeq (vows,$(__testbin))
+$(info Using Vows for 'cov'.)
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/jscoverage/vows.mk
+endif
+
+
+$(srcdir)-cov: $(SOURCES)
+	$(JSCOVERAGE) $(srcdir) $(srcdir)-cov
+
+view-cov: $(localstatedir)/cov/coverage.html
+	open $(localstatedir)/cov/coverage.html
