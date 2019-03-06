@@ -9,7 +9,7 @@
 # Because the override can potentially specify unsupported programs, the
 # result is filtered to only supported programs.  The preferred program is then
 # selected and the appropriate targets are included.
-__docimpl = jsdocx mr-docx
+__docimpl = jsdoc mr-doc
 __docbin = $(firstword $(filter $(__docimpl),$(WITH) $(notdir $(shell which $(__docimpl)))))
 
 ifeq (jsdoc,$(__docbin))
