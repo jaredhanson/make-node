@@ -10,8 +10,8 @@ COVERALLS ?= coveralls
 #
 # [^1]: https://coveralls.io/
 # [^2]: https://github.com/nickmerwin/node-coveralls
-report-cov:
-	cat $(LCOVFILE) | $(COVERALLS)
+report-cov: $(localstatedir)/cov/lcov.info
+	$(CAT) $< | $(COVERALLS)
 
 
 .PHONY: report-cov
