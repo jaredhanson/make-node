@@ -20,11 +20,6 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/version.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/release.mk
 
 
-BIN ?= ./node_modules/.bin
-
-REPORTSDIR ?= ./reports
-
-
 
 
 # Install dependencies in the local node_modules directory.
