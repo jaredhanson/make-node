@@ -1,8 +1,8 @@
 JSDOC ?= jsdoc
 
-# Generate documentation.
+# Build documentation.
 #
-# This target generates API documentation using JSDoc.
+# This target generates API documentation using [JSDoc](http://usejsdoc.org/).
 #
 # JSDoc can be installed by executing the following command:
 #
@@ -13,28 +13,26 @@ JSDOC ?= jsdoc
 #
 #     $ jsdoc -v
 #     JSDoc 3.5.5 (Thu, 14 Sep 2017 02:51:54 GMT)
-doc: $(htmldir)/index.html
+.PHONY: doc doc-html
+doc: doc-html
+doc-html: $(htmldir)/index.html
 
 
 
-
-# Generate documentation home page.
+# Build documentation home page.
 #
-# The source code is a prerequisite for the documentation as the documentation
-# is embedded as comments within the source code itself.
+# All source files are a prerequisite for the documentation, which is embedded
+# in comments within the source code itself.
 #
 # Note that only the home page (`index.html`) is used as a target, as that
 # serves as an index of all modules within the package.  As such, a modification
-# to any of the prerequisites will trigger documentation to be regenerated.
+# to any of the source files will cause the home page to be considered out-of
+# date, triggering the documentation to be rebuilt.
 $(htmldir)/index.html: $(SOURCES)
 	$(JSDOC) $(JSDOCFLAGS) -d $(htmldir) $^
 
-# Clean up documentation.
-#
-# This target cleans up any API documentation generated from source code.
-clean-docs:
+# Delete all files that are created by building documentation.
+.PHONY: clean-doc clean-doc-html
+clean-doc: clean-doc-html
+clean-doc-html:
 	-rm -r $(htmldir)
-
-
-.PHONY: clean-docs
-
