@@ -13,15 +13,15 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
 endif
 
 
-view-cov: $(localstatedir)/cov/index.html
-	open $(localstatedir)/cov/index.html
+view-cov: $(checkstatedir)/cov/index.html
+	open $(checkstatedir)/cov/index.html
 
 # Clean up code coverage.
 #
 # This target cleans up any reports written while collecting code coverage
 # statistics.
 clean-cov:
-	-rm -r $(localstatedir)/cov
+	-rm -r $(checkstatedir)/cov
 
 
 .PHONY: view-cov clean-cov

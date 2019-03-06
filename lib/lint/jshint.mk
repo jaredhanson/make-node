@@ -17,10 +17,10 @@ lint-src: $(SOURCES)
 lint-test: $(TESTS)
 	$(JSHINT) $(JSHINTFLAGS) $^
 
-$(localstatedir)/lint/jslint.xml: $(localstatedir)/lint
+$(checkstatedir)/lint/jslint.xml: $(checkstatedir)/lint
 	$(JSHINT) $(JSHINTFLAGS) --reporter=jslint $(SOURCES) $(TESTS) > $@
 
-$(localstatedir)/lint/checkstyle.xml: $(localstatedir)/lint
+$(checkstatedir)/lint/checkstyle.xml: $(checkstatedir)/lint
 	$(JSHINT) $(JSHINTFLAGS) --reporter=checkstyle $(SOURCES) $(TESTS) > $@
 
 

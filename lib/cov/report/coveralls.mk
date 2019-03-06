@@ -10,7 +10,7 @@ COVERALLS ?= coveralls
 #
 # [^1]: https://coveralls.io/
 # [^2]: https://github.com/nickmerwin/node-coveralls
-report-cov-coveralls: $(localstatedir)/cov/lcov.info
+report-cov-coveralls: $(checkstatedir)/cov/lcov.info
 	$(CAT) $< | $(COVERALLS)
 
 

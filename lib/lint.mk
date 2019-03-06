@@ -6,5 +6,5 @@ ifeq (jshint,$(__lintbin))
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/lint/jshint.mk
 endif
 
-$(localstatedir)/lint:
+$(checkstatedir)/lint:
 	mkdir -p $@

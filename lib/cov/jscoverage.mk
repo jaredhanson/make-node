@@ -13,5 +13,5 @@ endif
 $(srcdir)-cov: $(SOURCES)
 	$(JSCOVERAGE) $(srcdir) $(srcdir)-cov
 
-view-cov: $(localstatedir)/cov/coverage.html
-	open $(localstatedir)/cov/coverage.html
+view-cov: $(checkstatedir)/cov/coverage.html
+	open $(checkstatedir)/cov/coverage.html

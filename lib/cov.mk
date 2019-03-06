@@ -9,5 +9,5 @@ else ifeq (jscoverage,$(__covbin))
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/jscoverage.mk
 endif
 
-$(localstatedir)/cov:
+$(checkstatedir)/cov:
 	mkdir -p $@
