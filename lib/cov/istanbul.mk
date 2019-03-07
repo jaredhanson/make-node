@@ -36,6 +36,11 @@ $(checkstatedir)/cov/lcov.info: $(checkstatedir)/cov/coverage.json
 $(checkstatedir)/cov/clover.xml: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov clover
 
+# Generate coverage report in Cobertura XML format.
+#
+# This target generates an XML coverage report in the format output by
+# [Cobertura](http://cobertura.github.io/cobertura/), a code coverage tool that
+# originated within the Java ecosystem.
 $(checkstatedir)/cov/cobertura-coverage.xml: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov cobertura
 

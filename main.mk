@@ -9,8 +9,8 @@ CAT ?= cat
 prefix ?= .
 docdir ?= $(prefix)/doc
 htmldir ?= $(docdir)
-localstatedir ?= $(prefix)/var
 srcdir ?= lib
+checkstatedir ?= var
 
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/doc.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/test.mk
@@ -22,6 +22,16 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/version.mk
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/release.mk
 
 
+#.PHONY: clean
+#clean: clean-html
+
+# Clean up documentation.
+#
+# This target cleans up any API documentation generated from source code.
+.PHONY: maintainer-clean
+maintainer-clean:
+	@echo "This command is intended for maintainers to use; it"
+	@echo "deletes files that may need special tools to rebuild."
 
 
 # Install dependencies in the local node_modules directory.
