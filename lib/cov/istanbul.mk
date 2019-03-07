@@ -1,6 +1,6 @@
 ISTANBUL ?= istanbul
 
-# Run test suite and record code coverage.
+# Run test suite with code coverage.
 .PHONY: test-cov
 test-cov: $(checkstatedir)/cov/coverage.json
 
@@ -26,8 +26,8 @@ $(checkstatedir)/cov/index.html: $(checkstatedir)/cov/coverage.json
 # This target generates a coverage report in [LCOV](http://ltp.sourceforge.net/coverage/lcov.php)
 # tracefile [format][1].
 #
-# LCOV is a graphical front-end for gcov, GCC's code coverage tool.  The project
-# originated from the Linux Test Project (LTP).
+# LCOV is a graphical front-end for gcov, the GNU Compiler Collection (GCC)'s
+# code coverage tool.  The project originated from the Linux Test Project (LTP).
 #
 # [1]: http://ltp.sourceforge.net/coverage/lcov/geninfo.1.php
 $(checkstatedir)/cov/lcov.info: $(checkstatedir)/cov/coverage.json
@@ -69,6 +69,8 @@ $(checkstatedir)/cov/cobertura-coverage.xml: $(checkstatedir)/cov/coverage.json
 $(checkstatedir)/cov/coverage-final.json: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov json
 
+# Generate coverage report in JSON format.
+#
 # This target generates a coverage report in a JSON format that is proprietary
 # to [Istanbul](https://github.com/gotwarlost/istanbul).
 #
@@ -102,15 +104,12 @@ $(checkstatedir)/cov/coverage-final.json: $(checkstatedir)/cov/coverage.json
 $(checkstatedir)/cov/coverage-summary.json: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov json-summary
 
-view-cov: $(checkstatedir)/cov/index.html
-	open $(checkstatedir)/cov/index.html
-
-# Clean up code coverage.
-#
-# This target cleans up any reports written while collecting code coverage
-# statistics.
+# Delete all files that are created by generating coverage reports.
+.PHONY: clean-cov
 clean-cov:
 	-rm -r $(checkstatedir)/cov
 
-
-.PHONY: view-cov clean-cov
+# View coverage report in user's preferred application.
+.PHONY: view-cov
+view-cov: $(checkstatedir)/cov/index.html
+	open $^

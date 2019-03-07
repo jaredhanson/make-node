@@ -65,3 +65,8 @@ clean-pdf:
 # Delete all files that are created by generating documentation in PostScript format.
 .PHONY: clean-ps
 clean-ps:
+
+# View documentation in user's preferred application.
+.PHONY: view-html
+view-html: $(htmldir)/index.html
+	open $^
