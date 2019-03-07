@@ -31,13 +31,4 @@ test-cov: $(checkstatedir)/cov/coverage.json
 $(checkstatedir)/cov/coverage.json: $(SOURCES) $(TESTS)
 	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=none --dir $(checkstatedir)/cov $(shell which _mocha) -- $(MOCHAFLAGS) $(TESTS)
 
-$(checkstatedir)/cov/index.html: $(checkstatedir)/cov/coverage.json
-	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov html
-
-$(checkstatedir)/cov/lcov.info: $(checkstatedir)/cov/coverage.json
-	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov lcovonly
-
-$(checkstatedir)/cov/clover.xml: $(checkstatedir)/cov/coverage.json
-	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --dir $(checkstatedir)/cov clover
-
 .PHONY: test-cov
