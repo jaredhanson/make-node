@@ -58,6 +58,16 @@ $(checkstatedir)/cov/clover.xml: $(checkstatedir)/cov/coverage.json
 $(checkstatedir)/cov/cobertura-coverage.xml: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov cobertura
 
+# Generate coverage report in JSON format.
+#
+# This target generates a coverage report in a JSON format that is proprietary
+# to [Istanbul](https://github.com/gotwarlost/istanbul).
+#
+# Upon inspection, the file format is identical to the coverage object produced
+# in the previous `cover` command, with the addition of an `l` property,
+# containing line coverage information, to each file coverage object.
+$(checkstatedir)/cov/coverage-final.json: $(checkstatedir)/cov/coverage.json
+	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov json
 
 view-cov: $(checkstatedir)/cov/index.html
 	open $(checkstatedir)/cov/index.html
