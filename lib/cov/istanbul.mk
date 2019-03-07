@@ -16,6 +16,15 @@ endif
 $(checkstatedir)/cov/index.html: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov html
 
+# Generate coverage report in LCOV tracefile format.
+#
+# This target generates a coverage report in [LCOV](http://ltp.sourceforge.net/coverage/lcov.php)
+# tracefile [format][1].
+#
+# LCOV is a graphical front-end for gcov, GCC's code coverage tool.  The project
+# originated from the Linux Test Project (LTP).
+#
+# [1]: http://ltp.sourceforge.net/coverage/lcov/geninfo.1.php
 $(checkstatedir)/cov/lcov.info: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov lcovonly
 
