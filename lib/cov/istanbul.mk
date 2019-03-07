@@ -17,6 +17,7 @@ include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
 endif
 
 
+# Generate coverage report in HTML format.
 $(checkstatedir)/cov/index.html: $(checkstatedir)/cov/coverage.json
 	$(ISTANBUL) report $(ISTANBULFLAGS) --root=$(checkstatedir)/cov --include coverage.json --dir $(checkstatedir)/cov html
 
