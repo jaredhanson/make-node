@@ -1,5 +1,9 @@
 ISTANBUL ?= istanbul
 
+# Run test suite and record code coverage.
+.PHONY: test-cov
+test-cov: $(checkstatedir)/cov/coverage.json
+
 
 __testimpl = mocha vows
 __testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
