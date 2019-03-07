@@ -6,6 +6,7 @@
 #
 # Writes an LCOV tracefile
 # http://ltp.sourceforge.net/coverage/lcov/geninfo.1.php
+.PHONY: test-cov
 test-cov: $(checkstatedir)/cov/coverage.json
 
 
@@ -17,7 +18,7 @@ test-cov: $(checkstatedir)/cov/coverage.json
 #     {
 #          "/path/to/file1.js": { file1 coverage },
 #          "/path/to/file2.js": { file2 coverage }
-#      }
+#     }
 #
 # The internals of the file coverage object are [intentionally not documented][1]
 # since it is not a public interface.
@@ -30,5 +31,3 @@ test-cov: $(checkstatedir)/cov/coverage.json
 # [1]: https://github.com/gotwarlost/istanbul/blob/107fe8a9c11c17e341f49d01dcf0ee5e9879287b/lib/object-utils.js
 $(checkstatedir)/cov/coverage.json: $(SOURCES) $(TESTS)
 	$(ISTANBUL) cover $(ISTANBULFLAGS) --report=none --dir $(checkstatedir)/cov $(shell which _mocha) -- $(MOCHAFLAGS) $(TESTS)
-
-.PHONY: test-cov
