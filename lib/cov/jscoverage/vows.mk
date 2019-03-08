@@ -1,4 +1,9 @@
 # Run test suite with code coverage.
+#
+# This target uses [Vows](http://vowsjs.org/) to report code coverage.
+# Reporting is available if instrumented code is detected.  Currently only
+# [node-jscoverage](https://github.com/visionmedia/node-jscoverage) is
+# supported.
 test-cov: $(checkstatedir)/cov/coverage.html
 
 # Generate coverage report in HTML format.
