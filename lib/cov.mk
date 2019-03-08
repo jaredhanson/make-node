@@ -20,6 +20,7 @@ else ifeq (jscoverage,$(__covbin))
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/jscoverage.mk
 endif
 
+
 # Create directory where coverage reports are saved.
 $(checkstatedir)/cov:
 	mkdir -p $@
