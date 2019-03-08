@@ -5,14 +5,16 @@ ISTANBUL ?= istanbul
 test-cov: $(checkstatedir)/cov/coverage.json
 
 
+# Istanbul will transparently insrument a test suite and collect code coverage
+# statistics.  Istanbul is agnostic to the test framework in use, so this
+# include introspects the system and injects test-related targets based on which
+# program is available.
 __testimpl = mocha vows
 __testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
 
 ifeq (mocha,$(__testbin))
-#$(info Using Instanbul with Mocha for 'test-cov'.)
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/mocha.mk
 else ifeq (vows,$(__testbin))
-#$(info Using Instanbul with Vows for 'test-cov'.)
 include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/istanbul/vows.mk
 endif
 

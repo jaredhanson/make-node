@@ -1,6 +1,9 @@
-JSCOVERAGE ?= /Users/jaredhanson/Temporary/jscoverage/node-jscoverage/jscoverage
+JSCOVERAGE ?= jscoverage
 
 
+# JSCoverage only instruments source files.  It depends on a test runner to
+# collect code coverage statistcs, so this include introspects the system and
+# injects test-related targets based on which program is available.
 __testimpl = vows
 __testbin = $(firstword $(filter $(__testimpl),$(WITH) $(notdir $(shell which $(__testimpl)))))
 
