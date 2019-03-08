@@ -11,7 +11,5 @@ endif
 
 
 $(srcdir)-cov: $(SOURCES)
+	-rm -r $(srcdir)-cov
 	$(JSCOVERAGE) $(srcdir) $(srcdir)-cov
-
-view-cov: $(checkstatedir)/cov/coverage.html
-	open $(checkstatedir)/cov/coverage.html
