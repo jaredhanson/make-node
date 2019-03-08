@@ -1,28 +1,30 @@
 JSHINT ?= jshint
 
-# Check code quality.
+# Detect stylistic errors and potential problems.
 #
-# This target checks the quality of the source code, helping to detect errors
-# and potential problems.  JSHint[^1] is used as the linter.
-#
-# JSHint can be installed by executing the following command:
-#     $ npm install -g jshint
-#
-# [^1]: http://jshint.com/
-lint: lint-src lint-tests
+# This target is included for projects using [JSHint](https://jshint.com/) as a
+# linter.
+.PHONY: lint
+lint: $(SOURCES) $(TESTS)
+	$(JSHINT) $(JSHINTFLAGS) $^
 
+.PHONY: lint-src
 lint-src: $(SOURCES)
 	$(JSHINT) $(JSHINTFLAGS) $^
 
+.PHONY: lint-test
 lint-test: $(TESTS)
 	$(JSHINT) $(JSHINTFLAGS) $^
 
+# Generate lint report in JSLint XML format.
 $(checkstatedir)/lint/jslint.xml: $(checkstatedir)/lint
 	$(JSHINT) $(JSHINTFLAGS) --reporter=jslint $(SOURCES) $(TESTS) > $@
 
+# Generate lint report in Checkstyle XML format.
 $(checkstatedir)/lint/checkstyle.xml: $(checkstatedir)/lint
 	$(JSHINT) $(JSHINTFLAGS) --reporter=checkstyle $(SOURCES) $(TESTS) > $@
 
-
-
-.PHONY: lint lint-src lint-test
+# Delete all files that are created by generating lint reports.
+.PHONY: clean-lint
+clean-lint:
+	-rm -r $(checkstatedir)/lint
