@@ -1,17 +1,8 @@
 COVERALLS ?= coveralls
 
-# Report code coverage.
+# Report code coverage to Coveralls.
 #
-# This target sends code coverage reports to Coveralls[^1], where they can be
-# viewed and analyzed.
-#
-# `coveralls`[^2] can be installed by executing the following command:
-#     $ npm install -g coveralls
-#
-# [^1]: https://coveralls.io/
-# [^2]: https://github.com/nickmerwin/node-coveralls
+# This target reports code coverage to [Coveralls](https://coveralls.io).
+.PHONY: report-cov-coveralls
 report-cov-coveralls: $(checkstatedir)/cov/lcov.info
 	$(CAT) $< | $(COVERALLS)
-
-
-.PHONY: report-cov-coveralls
