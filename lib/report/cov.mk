@@ -1,5 +1,5 @@
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/report/codecov.mk
-include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/cov/report/coveralls.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/report/cov/codecov.mk
+include $(__JAREDHANSON_MAKE_NODE_DIR)/lib/report/cov/coveralls.mk
 
 
 __reportcovimpl = coveralls codecov
