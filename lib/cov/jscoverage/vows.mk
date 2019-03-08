@@ -4,6 +4,7 @@
 # Reporting is available if instrumented code is detected.  Currently only
 # [node-jscoverage](https://github.com/visionmedia/node-jscoverage) is
 # supported.
+.PHONY: test-cov
 test-cov: $(checkstatedir)/cov/coverage.html
 
 # Generate coverage report in HTML format.
@@ -29,5 +30,6 @@ $(checkstatedir)/cov/coverage.json: $(TESTS) $(srcdir)-cov $(checkstatedir)/cov
 	mv coverage.json $@
 
 # View coverage report in user's preferred application.
+.PHONY: view-cov
 view-cov: $(checkstatedir)/cov/coverage.html
 	open $^
