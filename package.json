@@ -1,6 +1,6 @@
 {
   "name": "make-node",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Useful makefiles for developing Node.js packages.",
   "keywords": [
     "make"
